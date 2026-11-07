@@ -1,158 +1,122 @@
+
 <!DOCTYPE html>
 <html lang="uz">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PUBG UC XIZMAT</title>
-<style>
-*{box-sizing:border-box}
-body{
-  margin:0;
-  background:#101510;
-  color:white;
-  font-family:Arial,sans-serif;
-}
-header{
-  background:#17251a;
-  padding:22px 15px;
-  text-align:center;
-  border-bottom:2px solid #28d65c;
-}
-header h1{color:#36e66b;margin:0}
-header p{color:#bbb;margin-bottom:0}
-.container{padding:16px}
-.balance{
-  background:#1c3021;
-  padding:18px;
-  border-radius:14px;
-  margin-bottom:20px;
-}
-.balance h2{color:#42ed75;margin:5px 0}
-h3{color:#42ed75}
-.products{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:12px;
-}
-.card{
-  background:#1b251d;
-  padding:15px 10px;
-  border-radius:12px;
-  text-align:center;
-  border:1px solid #304a35;
-}
-.card h3{margin:5px}
-.price{color:#ffd45c}
-button{
-  background:#25d45b;
-  color:#07150a;
-  border:0;
-  padding:11px;
-  border-radius:9px;
-  font-weight:bold;
-  width:100%;
-  margin-top:10px;
-}
-button:active{opacity:.7}
-nav{
-  position:fixed;
-  bottom:0;
-  left:0;
-  width:100%;
-  background:#17251a;
-  display:flex;
-  justify-content:space-around;
-  padding:13px 3px;
-}
-nav button{
-  width:auto;
-  background:none;
-  color:white;
-  margin:0;
-  padding:8px;
-}
-.page{display:none;padding-bottom:80px}
-.page.active{display:block}
-footer{text-align:center;color:#888;padding:20px}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PUBG UC XIZMAT</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 18px;
+      background: #101b16;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+    header {
+      text-align: center;
+      padding: 15px;
+      color: #35e58b;
+      font-size: 23px;
+      font-weight: bold;
+    }
+    .balance, .card {
+      background: #1b2b23;
+      border: 1px solid #315b43;
+      border-radius: 15px;
+      padding: 18px;
+      margin-bottom: 15px;
+    }
+    .balance p { color: #b7c8bd; }
+    .balance h2 {
+      color: #35e58b;
+      font-size: 27px;
+    }
+    h3 { color: #35e58b; }
+    .card {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+    button {
+      background: #20c875;
+      border: none;
+      border-radius: 9px;
+      padding: 11px 15px;
+      color: #071b10;
+      font-weight: bold;
+    }
+    nav {
+      display: flex;
+      justify-content: space-around;
+      gap: 5px;
+      margin-top: 20px;
+    }
+    nav button { flex: 1; padding: 12px 5px; }
+    .page { display: none; }
+    .page.active { display: block; }
+    .muted { color: #b7c8bd; }
+  </style>
 </head>
 <body>
 
-<header>
-  <h1>🎮 PUBG UC XIZMAT</h1>
-  <p>Tezkor va qulay xizmat</p>
-</header>
+<header>🎮 PUBG UC XIZMAT</header>
 
-<div class="container">
+<div class="balance">
+  <p>💰 Hisobingiz balansi</p>
+  <h2 id="balance">Yuklanmoqda...</h2>
+  <button onclick="loadBalance()">🔄 Yangilash</button>
+</div>
 
 <div id="home" class="page active">
-  <div class="balance">
-    <p>Hisobingiz balansi</p>
-    <h2>0 so‘m</h2>
+  <h3>🎮 PUBG UC</h3>
+
+  <div class="card">
+    <div>
+      <b>60 UC</b>
+      <p class="muted">PUBG Mobile</p>
+    </div>
+    <button onclick="buy('60 UC')">Tanlash</button>
   </div>
 
-  <h3>🔥 PUBG MOBILE UC</h3>
-  <div class="products">
-
-    <div class="card">
-      <h3>60 UC</h3>
-      <p class="price">Narx: kelishiladi</p>
-      <button onclick="buy('60 UC')">Buyurtma</button>
+  <div class="card">
+    <div>
+      <b>325 UC</b>
+      <p class="muted">PUBG Mobile</p>
     </div>
+    <button onclick="buy('325 UC')">Tanlash</button>
+  </div>
 
-    <div class="card">
-      <h3>325 UC</h3>
-      <p class="price">Narx: kelishiladi</p>
-      <button onclick="buy('325 UC')">Buyurtma</button>
+  <div class="card">
+    <div>
+      <b>660 UC</b>
+      <p class="muted">PUBG Mobile</p>
     </div>
-
-    <div class="card">
-      <h3>660 UC</h3>
-      <p class="price">Narx: kelishiladi</p>
-      <button onclick="buy('660 UC')">Buyurtma</button>
-    </div>
-
-    <div class="card">
-      <h3>1800 UC</h3>
-      <p class="price">Narx: kelishiladi</p>
-      <button onclick="buy('1800 UC')">Buyurtma</button>
-    </div>
-
-    <div class="card">
-      <h3>3850 UC</h3>
-      <p class="price">Narx: kelishiladi</p>
-      <button onclick="buy('3850 UC')">Buyurtma</button>
-    </div>
-
-    <div class="card">
-      <h3>8100 UC</h3>
-      <p class="price">Narx: kelishiladi</p>
-      <button onclick="buy('8100 UC')">Buyurtma</button>
-    </div>
-
+    <button onclick="buy('660 UC')">Tanlash</button>
   </div>
 
   <h3>💎 ML Diamonds</h3>
   <div class="card">
-    <h3>ML Diamonds</h3>
-    <p>Mobile Legends uchun</p>
-    <button onclick="alert('ML Diamonds tez orada!')">
-      Ko‘rish
-    </button>
+    <div>
+      <b>86 Diamonds</b>
+      <p class="muted">Mobile Legends</p>
+    </div>
+    <button onclick="buy('86 Diamonds')">Tanlash</button>
   </div>
 </div>
 
 <div id="orders" class="page">
-  <h2>📦 Buyurtmalar</h2>
-  <p>Hozircha buyurtmalar mavjud emas.</p>
+  <h3>📦 Buyurtmalarim</h3>
+  <p class="muted">Hozircha buyurtmalar mavjud emas.</p>
 </div>
 
 <div id="profile" class="page">
-  <h2>👤 Profil</h2>
-  <p>Do‘kon: PUBG UC XIZMAT</p>
-  <p>Telegram: @Pubgucxizmat_bot</p>
-</div>
-
+  <h3>👤 Profilim</h3>
+  <p id="username">Telegram foydalanuvchisi</p>
+  <p class="muted">PUBG UC XIZMAT</p>
 </div>
 
 <nav>
@@ -161,21 +125,64 @@ footer{text-align:center;color:#888;padding:20px}
   <button onclick="showPage('profile')">👤 Profil</button>
 </nav>
 
-<footer>
-  PUBG UC XIZMAT © 2026
-</footer>
-
 <script>
-function showPage(id){
-  document.querySelectorAll('.page').forEach(p=>{
-    p.classList.remove('active');
-  });
-  document.getElementById(id).classList.add('active');
+const tg = window.Telegram?.WebApp;
+tg?.ready();
+tg?.expand();
+
+if (tg?.initDataUnsafe?.user) {
+  const user = tg.initDataUnsafe.user;
+  document.getElementById('username').textContent =
+    user.first_name || 'Telegram foydalanuvchisi';
 }
 
-function buy(packageName){
-  alert(packageName + ' tanlandi. Buyurtma tizimi hali ulanmagan.');
+async function loadBalance() {
+  const balanceEl = document.getElementById('balance');
+
+  if (!tg || !tg.initData) {
+    balanceEl.textContent = 'Telegram orqali oching';
+    return;
+  }
+
+  balanceEl.textContent = 'Yuklanmoqda...';
+
+  try {
+    const response = await fetch(
+      'https://pubg-uc-xizmat-server.onrender.com/api/balance',
+      {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({initData: tg.initData})
+      }
+    );
+
+    const data = await response.json();
+
+    if (!response.ok || !data.ok) {
+      balanceEl.textContent = 'Balans yuklanmadi';
+      return;
+    }
+
+    balanceEl.textContent =
+      Number(data.balance).toLocaleString('uz-UZ') + ' so‘m';
+
+  } catch (error) {
+    balanceEl.textContent = 'Ulanishda xatolik';
+  }
 }
+
+function showPage(page) {
+  document.querySelectorAll('.page').forEach(el => {
+    el.classList.remove('active');
+  });
+  document.getElementById(page).classList.add('active');
+}
+
+function buy(product) {
+  alert(product + ' tanlandi. Buyurtma berish hozircha sinov rejimida.');
+}
+
+loadBalance();
 </script>
 
 </body>
