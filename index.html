@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PUBG UC XIZMAT</title>
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:#101510;
+  color:white;
+  font-family:Arial,sans-serif;
+}
+header{
+  background:#17251a;
+  padding:22px 15px;
+  text-align:center;
+  border-bottom:2px solid #28d65c;
+}
+header h1{color:#36e66b;margin:0}
+header p{color:#bbb;margin-bottom:0}
+.container{padding:16px}
+.balance{
+  background:#1c3021;
+  padding:18px;
+  border-radius:14px;
+  margin-bottom:20px;
+}
+.balance h2{color:#42ed75;margin:5px 0}
+h3{color:#42ed75}
+.products{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+.card{
+  background:#1b251d;
+  padding:15px 10px;
+  border-radius:12px;
+  text-align:center;
+  border:1px solid #304a35;
+}
+.card h3{margin:5px}
+.price{color:#ffd45c}
+button{
+  background:#25d45b;
+  color:#07150a;
+  border:0;
+  padding:11px;
+  border-radius:9px;
+  font-weight:bold;
+  width:100%;
+  margin-top:10px;
+}
+button:active{opacity:.7}
+nav{
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  background:#17251a;
+  display:flex;
+  justify-content:space-around;
+  padding:13px 3px;
+}
+nav button{
+  width:auto;
+  background:none;
+  color:white;
+  margin:0;
+  padding:8px;
+}
+.page{display:none;padding-bottom:80px}
+.page.active{display:block}
+footer{text-align:center;color:#888;padding:20px}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🎮 PUBG UC XIZMAT</h1>
+  <p>Tezkor va qulay xizmat</p>
+</header>
+
+<div class="container">
+
+<div id="home" class="page active">
+  <div class="balance">
+    <p>Hisobingiz balansi</p>
+    <h2>0 so‘m</h2>
+  </div>
+
+  <h3>🔥 PUBG MOBILE UC</h3>
+  <div class="products">
+
+    <div class="card">
+      <h3>60 UC</h3>
+      <p class="price">Narx: kelishiladi</p>
+      <button onclick="buy('60 UC')">Buyurtma</button>
+    </div>
+
+    <div class="card">
+      <h3>325 UC</h3>
+      <p class="price">Narx: kelishiladi</p>
+      <button onclick="buy('325 UC')">Buyurtma</button>
+    </div>
+
+    <div class="card">
+      <h3>660 UC</h3>
+      <p class="price">Narx: kelishiladi</p>
+      <button onclick="buy('660 UC')">Buyurtma</button>
+    </div>
+
+    <div class="card">
+      <h3>1800 UC</h3>
+      <p class="price">Narx: kelishiladi</p>
+      <button onclick="buy('1800 UC')">Buyurtma</button>
+    </div>
+
+    <div class="card">
+      <h3>3850 UC</h3>
+      <p class="price">Narx: kelishiladi</p>
+      <button onclick="buy('3850 UC')">Buyurtma</button>
+    </div>
+
+    <div class="card">
+      <h3>8100 UC</h3>
+      <p class="price">Narx: kelishiladi</p>
+      <button onclick="buy('8100 UC')">Buyurtma</button>
+    </div>
+
+  </div>
+
+  <h3>💎 ML Diamonds</h3>
+  <div class="card">
+    <h3>ML Diamonds</h3>
+    <p>Mobile Legends uchun</p>
+    <button onclick="alert('ML Diamonds tez orada!')">
+      Ko‘rish
+    </button>
+  </div>
+</div>
+
+<div id="orders" class="page">
+  <h2>📦 Buyurtmalar</h2>
+  <p>Hozircha buyurtmalar mavjud emas.</p>
+</div>
+
+<div id="profile" class="page">
+  <h2>👤 Profil</h2>
+  <p>Do‘kon: PUBG UC XIZMAT</p>
+  <p>Telegram: @Pubgucxizmat_bot</p>
+</div>
+
+</div>
+
+<nav>
+  <button onclick="showPage('home')">🏠 Bosh sahifa</button>
+  <button onclick="showPage('orders')">📦 Buyurtmalar</button>
+  <button onclick="showPage('profile')">👤 Profil</button>
+</nav>
+
+<footer>
+  PUBG UC XIZMAT © 2026
+</footer>
+
+<script>
+function showPage(id){
+  document.querySelectorAll('.page').forEach(p=>{
+    p.classList.remove('active');
+  });
+  document.getElementById(id).classList.add('active');
+}
+
+function buy(packageName){
+  alert(packageName + ' tanlandi. Buyurtma tizimi hali ulanmagan.');
+}
+</script>
+
+</body>
+</html>
